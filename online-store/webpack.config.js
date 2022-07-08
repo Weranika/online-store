@@ -3,6 +3,7 @@ const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const EslingPlugin = require('eslint-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const baseConfig = {
     entry: path.resolve(__dirname, './src/index'),
@@ -23,7 +24,18 @@ const baseConfig = {
                 options: {
                     name: 'assets/img/[name].[ext]',
                 },
-            }
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                  // fallback to style-loader in development
+                  process.env.NODE_ENV !== 'production'
+                    ? 'style-loader'
+                    : MiniCssExtractPlugin.loader,
+                  'css-loader',
+                  'sass-loader',
+                ],
+            },
         ],
     },
     resolve: {
@@ -40,6 +52,9 @@ const baseConfig = {
         }),
         new CleanWebpackPlugin(),
         new EslingPlugin({ extensions: 'ts' }),
+        new MiniCssExtractPlugin({
+            filename: 'style.css',
+        })
     ],
 };
 

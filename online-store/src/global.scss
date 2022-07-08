@@ -1,0 +1,13 @@
+$color-light: rgb(240, 240, 240);
+$color-light-s: rgba(250, 250, 250, 1);
+$color-dark-l: rgba(246, 246, 246, 1);
+
+body {
+  background-color: $color-light;
+}
+header {
+  background-color: rgb(54, 60, 73);
+}
+article {
+  background: url('./assets/images/background-patio-img.jpg');
+}

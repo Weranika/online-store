@@ -1,0 +1,98 @@
+{"products": [
+  {
+      "type": "Chair",
+      "img": "./src/assets/img/aepplaroe-one-seat-section-outdoor-brown-wood.jpg",
+      "size": "1-seat",
+      "color": "Wood",
+      "description": "1-seat modular sofa. By combining different seating sections, you can create a sofa in a shape and size that perfectly suits your outdoor space.",
+      "material": "Wood"
+  }, 
+  {
+    "type": "Sofa",
+    "img": "./src/assets/img/aepplaroe-2-seat-modular-sofa-outdoor-grey-wood.jpg",
+    "size": "2-seat",
+    "color": "Grey",
+    "description": "2-seat modular sofa.The furniture is made of acacia, a naturally durable and sturdy hardwood because of the high density of its wood fibres.",
+    "material": "Wood"
+}, 
+{
+  "type": "Sofa",
+  "img": "./src/assets/img/aepplaroe-3-seat-modular-sofa-beige-wood.jpg",
+  "size": "3-seat",
+  "color": "Beige",
+  "description": "1-seat modular sofa. By combining different seating sections, you can create a sofa in a shape and size that perfectly suits your outdoor space.",
+  "material": "Wood"
+}, 
+{
+  "type": "Chair",
+  "img": "./src/assets/img/havsten-easy-chair-in-outdoor-beige-metall.jpg",
+  "size": "1-seat",
+  "color": "Beige",
+  "description": "1-seat modular sofa. If you like the look, try how it feels. Generous seats, fluffy cushions as well as elastic mesh fabric make the sofa comfortable. Create your own combination, sit back and relax. Outdoors or indoors!",
+  "material": "Metall"
+}, 
+{
+  "type": "Sofa",
+  "img": "./src/assets/img/havsten-2-seat-sofa-beige-metall.jpg",
+  "size": "2-seat",
+  "color": "Beige",
+  "description": "2-seat modular sofa. If you like the look, try how it feels. Generous seats, fluffy cushions as well as elastic mesh fabric make the sofa comfortable. Create your own combination, sit back and relax. Outdoors or indoors!",
+  "material": "Metall"
+}, 
+{
+  "type": "Sofa",
+  "img": "./src/assets/img/havsten-3-seat-sofa-in-outdoor-beige-metall.jpg",
+  "size": "3-seat",
+  "color": "Beige",
+  "description": "3-seat modular sofa. If you like the look, try how it feels. Generous seats, fluffy cushions as well as elastic mesh fabric make the sofa comfortable. Create your own combination, sit back and relax. Outdoors or indoors!",
+  "material": "Metall"
+},
+{
+  "type": "Chair",
+  "img": "./src/assets/img/jutholmen-one-seat-section-outdoor-dark-grey-brown-plastic.jpg",
+  "size": "1-seat",
+  "color": "Dark grey",
+  "description": "1-seat modular sofa. Create a comfy spot for relaxing outdoors with JUTHOLMEN modular sofa made of maintenance-free plastic rattan. Add soft, fade-resistant cushions with anti-slip to make outdoor life even easier.",
+  "material": "Rottang"
+},
+{
+  "type": "Sofa",
+  "img": "./src/assets/img/jutholmen-3-seat-modular-sofa-outdoor-dark-grey-plastic.jpg",
+  "size": "3-seat",
+  "color": "Dark grey",
+  "description": "3-seat modular sofa. Create a comfy spot for relaxing outdoors with JUTHOLMEN modular sofa made of maintenance-free plastic rattan. Add soft, fade-resistant cushions with anti-slip to make outdoor life even easier.",
+  "material": "Rottang"
+},
+{
+  "type": "Chair",
+  "img": "./src/assets/img/solleroen-one-seat-section-outdoor-brown-rottan.jpg",
+  "size": "1-seat",
+  "color": "Brown",
+  "description": "1-seat modular sofa. Create an armchair or customised sofa with our modular sections. Use the one-seat section on its own or add armrests or more sections. Maintenance-free plastic rattan makes life comfortable.",
+  "material": "Rottang"
+},
+{
+  "type": "Sofa",
+  "img": "./src/assets/img/solleroen-2-seat-modular-sofa-outdoor-brown-rottan.jpg",
+  "size": "2-seat",
+  "color": "Dark grey",
+  "description": "2-seat modular sofa. Create an armchair or customised sofa with our modular sections. Use the one-seat section on its own or add armrests or more sections. Maintenance-free plastic rattan makes life comfortable.",
+  "material": "Rottang"
+},
+{
+  "type": "Sofa",
+  "img": "./src/assets/img/solleroen-3-seat-modular-sofa-outdoor-beige-rottan.jpg",
+  "size": "3-seat",
+  "color": "Beige",
+  "description": "3-seat modular sofa. Create an armchair or customised sofa with our modular sections. Use the one-seat section on its own or add armrests or more sections. Maintenance-free plastic rattan makes life comfortable.",
+  "material": "Rottang"
+},
+{
+  "type": "Sofa",
+  "img": "./src/assets/img/solleroen-modular-corner-sofa-3-seat-dark-grey-rottan.jpg",
+  "size": "3-seat",
+  "color": "Dark grey",
+  "description": "3-seat modular sofa. Create an armchair or customised sofa with our modular sections. Use the one-seat section on its own or add armrests or more sections. Maintenance-free plastic rattan makes life comfortable.",
+  "material": "Rottang"
+}
+]}

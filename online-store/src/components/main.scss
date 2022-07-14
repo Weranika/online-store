@@ -1,0 +1,21 @@
+$color-light: rgb(240, 240, 240);
+$color-light-s: rgb(216,215,230);
+$color-dark-l: rgb(47, 47, 71);
+$color-dark-xl: rgb(19,18,43);;
+
+$HEADER_CONTAINER: 1000px;
+$WIDTH: 1200px;
+
+$FONT-GILL: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+$FONT-MONOSPASE: monospace;
+
+.logo {
+  font-size: 1.5rem;
+  color: $color-dark-l;
+  text-decoration: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.subtitle {
+  font-family: monospace;
+  font-size: 0.9rem;
+}

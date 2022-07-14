@@ -1,14 +1,24 @@
 $color-light: rgb(240, 240, 240);
-$color-light-s: rgba(250, 250, 250, 1);
-$color-dark-l: rgba(246, 246, 246, 1);
+$color-light-s: rgb(216,215,230);
+$color-light-xs: rgb(243, 243, 243);
+$color-dark-l: rgb(47, 47, 71);
+$color-dark-xl: rgb(19,18,43);;
+
+$HEADER-CONTAINER-WIDTH: 1000px;
+$HEADER-CONTAINER-HEIGHT: 70px;
+$WIDTH: 95vw;
 
 body {
   background-color: $color-light;
+  height: 100%;
+  width: $WIDTH;
+  margin: 0 auto;
+  background-image: url('../src/assets/img/background-patio-img.jpg');
+  background-attachment: fixed
 }
-header {
-  background-color: rgb(54, 60, 73);
+main {
+  margin-top: calc($HEADER-CONTAINER-HEIGHT); 
+  display: flex;
+  padding-top: 20px;  
+  opacity: 0.85;
 }
-article {
-  // background: url('./assets/images/background-patio-img.jpg');
-}
-.test{background-color: red;}

@@ -1,7 +1,64 @@
 $color-light: rgb(240, 240, 240);
-$color-light-s: rgba(250, 250, 250, 1);
-$color-dark-l: rgba(246, 246, 246, 1);
+$color-light-s: rgb(216,215,230);
+$color-dark-l: rgb(47, 47, 71);
+$color-dark-xl: rgb(19,18,43);;
+
+$HEADER-CONTAINER-WIDTH: 1000px;
+$HEADER-CONTAINER-HEIGHT: 70px;
+
+$FONT-GILL: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+$FONT-MONOSPASE: monospace;
 
 .logo {
-  font-size: 3rem;
+  font-size: 1.5rem;
+  color: $color-dark-l;
+  text-decoration: none;
+  font-family: $FONT-GILL;
+  &:hover {
+    color: $color-dark-xl;
+  }
+}
+.subtitle {
+  font-family: $FONT-MONOSPASE;
+  font-size: 0.9rem;
+}
+header {
+  background: $color-light-s;
+  background: linear-gradient(90deg, rgba(216,215,230,1) 0%, rgba(239,239,255,1) 35%, rgba(181,192,194,1) 100%);  
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+}
+.header-container {
+  width: $HEADER-CONTAINER-WIDTH;
+  height: $HEADER-CONTAINER-HEIGHT;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+.basket {
+  display: flex;
+  align-items: center;
+}
+.bascet-logo {
+  height: 2.5rem;
+  width: 2.5rem;
+  opacity: 70%;
+}
+.basket-counter {
+  font-family: $FONT-MONOSPASE;
+  font-size: 2rem;
+  color: $color-dark-xl;
+  background-color: $color-light;
+  border-radius: 100%;
+  height: 2rem;
+  width: 2.5rem;
+  text-align: center;
+  padding-bottom: 10%;
+  margin-left: -9px;
+  z-index: 2;
+  margin-top: 12px;
 }

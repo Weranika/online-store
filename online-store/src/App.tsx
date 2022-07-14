@@ -1,12 +1,17 @@
 import React from 'react';
-import './App.css';
-//import './global.scss';
-import Header from './components/header'
+import './global.scss';
+import Header from './components/header';
+import ActionAreaCard from './components/card';
+import Aside from './components/aside';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Header/>
+      <main>
+        <Aside/>
+        <ActionAreaCard/>
+      </main>
     </div>
   );
 }

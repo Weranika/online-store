@@ -1,0 +1,55 @@
+$color-light: rgb(240, 240, 240);
+$color-light-xs: rgb(250, 250, 250);
+$color-light-s: rgb(232, 232, 241);
+$color-light-blue: rgb(230, 240, 245);
+$color-blue: rgb(89, 147, 175);
+$color-dark-s: rgb(187, 187, 187);
+$color-dark-m: rgb(89, 89, 92);
+$color-dark-l: rgb(47, 47, 71);
+$color-dark-xl: rgb(19,18,43);
+$color-brown: rgb(94, 81, 66);
+
+$HEADER_CONTAINER: 1000px;
+$WIDTH: 95vw;
+
+$FONT-GILL: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+$FONT-MONOSPASE: monospace;
+
+.main-section {
+  margin-left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+  justify-content: space-around;
+  width: 80%;
+}
+.card {
+  max-width: 30%;
+  background-color: $color-light-s;
+  border-radius: 5px;  
+  .card-img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 5px;
+  }
+  .card-title {
+    text-align: center;
+    padding: 10px 0;
+    color: $color-dark-xl;
+    font-family: $FONT-GILL;
+  }
+  .card-content {
+    padding: 0 1rem;
+    ul {
+      list-style-type: none;
+      padding-top: 10px;
+      font-size: 1em;
+    }
+  }
+  .card-price {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 6px 0;
+    font-family: $FONT-MONOSPASE;
+  }
+}

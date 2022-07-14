@@ -1,9 +1,14 @@
 $color-light: rgb(240, 240, 240);
-$color-light-s: rgb(216,215,230);
+$color-light-xs: rgb(250, 250, 250);
+$color-light-s: rgb(232, 232, 241);
+$color-light-blue: rgb(230, 240, 245);
+$color-dark-s: rgb(187, 187, 187);
+$color-dark-m: rgb(89, 89, 92);
 $color-dark-l: rgb(47, 47, 71);
-$color-dark-xl: rgb(19,18,43);;
+$color-dark-xl: rgb(19,18,43);
+$color-brown: rgb(94, 81, 66);
 
-$HEADER-CONTAINER-WIDTH: 1000px;
+$HEADER-CONTAINER-WIDTH: 90vw;
 $HEADER-CONTAINER-HEIGHT: 70px;
 
 $FONT-GILL: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -15,7 +20,7 @@ $FONT-MONOSPASE: monospace;
   text-decoration: none;
   font-family: $FONT-GILL;
   &:hover {
-    color: $color-dark-xl;
+    color: $color-brown;
   }
 }
 .subtitle {
@@ -61,4 +66,17 @@ header {
   margin-left: -9px;
   z-index: 2;
   margin-top: 12px;
+}
+.search-container {
+  margin-left: 25%;
+  background-color: rgba(19,20,21,.1);
+  border: 1px solid $color-dark-m;
+  border-radius: 20px;
+  padding-left: 20px;
+  position: relative;
+  .search-input {
+    background-color: transparent;
+    border: 0;
+    width: 80%;
+  }
 }

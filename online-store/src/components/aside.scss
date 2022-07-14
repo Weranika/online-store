@@ -2,10 +2,12 @@ $color-light: rgb(240, 240, 240);
 $color-light-xs: rgb(250, 250, 250);
 $color-light-s: rgb(232, 232, 241);
 $color-light-blue: rgb(230, 240, 245);
+$color-blue: rgb(89, 147, 175);
 $color-dark-s: rgb(187, 187, 187);
 $color-dark-m: rgb(89, 89, 92);
 $color-dark-l: rgb(47, 47, 71);
-$color-dark-xl: rgb(19,18,43);;
+$color-dark-xl: rgb(19,18,43);
+$color-brown: rgb(94, 81, 66);
 
 $HEADER_CONTAINER: 1000px;
 $WIDTH: 95vw;
@@ -17,13 +19,14 @@ $FONT-MONOSPASE: monospace;
   min-width: 15%;
   max-width: 20%;
   background-color: $color-light-xs;
+  border-radius: 5px;
+  text-align: center;
 }
 .aside-container {
   padding: 10px;
 }
 .aside-title {
   font-family: $FONT-GILL;
-  padding: 10px 0;
 }
 .fiitered-item-title {
   font-family: $FONT-MONOSPASE;
@@ -34,7 +37,7 @@ $FONT-MONOSPASE: monospace;
   display: flex;
   min-height: 40px;
   align-items: center;
-  margin: 15px 0;
+  margin: 0.6em 0;
   border: $color-light-blue 4px solid;
   border-radius: 5px;
   padding: 5px;
@@ -48,7 +51,7 @@ $FONT-MONOSPASE: monospace;
   flex-wrap: wrap;
   
 }
-.filter-button {
+.filter-button, .reset-button {
   margin: 5px;
   border-radius: 5px;
   border: none;
@@ -61,16 +64,20 @@ $FONT-MONOSPASE: monospace;
   &:hover {
     background-color: $color-dark-m;
   }
+  .active {
+    background-color: $color-blue;
+  }
 }
-
+.reset-button {
+  background-color: $color-brown;
+  font-size: 1rem;
+}
 .MuiSlider-root {
-  color: #83adc0;
+  color: #95b4c2;
 }
-
 .MuiSlider-root:hover {
   color: #445a83;
 }
-
 .MuiSlider-root .MuiSlider-thumb {
   border-radius: 1px;
 }

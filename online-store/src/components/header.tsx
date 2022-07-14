@@ -7,9 +7,13 @@ function Header() {
     <div className="App">
       <header >
         <div className="header-container">
-          <div className="logo" id="start-screen nonshow">
+          <div id="start-screen nonshow">
                 <h1><a href="#start-screen" className="logo">Relaxation</a></h1>
                 <div className="subtitle">store of relaxing furniture</div>
+          </div>
+          <div className='search-container'>
+            <input placeholder='enter search item' type="text" className="search-input"></input>
+            <div className='search-clear'></div>
           </div>
           <Basket/>
         </div>

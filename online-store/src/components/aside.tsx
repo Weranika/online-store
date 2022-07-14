@@ -43,7 +43,8 @@ function Aside() {
           <h4 className='fiitered-item-title'>Price:</h4>
           <RangeSlider/>
         </div>
-      </div>      
+      </div>
+      <button className='reset-button'>Reset filters</button>
     </aside>
   );
 }

@@ -1,8 +1,11 @@
 $color-light: rgb(240, 240, 240);
-$color-light-s: rgb(216,215,230);
-$color-light-xs: rgb(243, 243, 243);
+$color-light-xs: rgb(250, 250, 250);
+$color-light-s: rgb(232, 232, 241);
+$color-light-blue: rgb(230, 240, 245);
+$color-dark-s: rgb(187, 187, 187);
+$color-dark-m: rgb(89, 89, 92);
 $color-dark-l: rgb(47, 47, 71);
-$color-dark-xl: rgb(19,18,43);;
+$color-dark-xl: rgb(19,18,43);
 
 $HEADER-CONTAINER-WIDTH: 1000px;
 $HEADER-CONTAINER-HEIGHT: 70px;
@@ -20,5 +23,5 @@ main {
   margin-top: calc($HEADER-CONTAINER-HEIGHT); 
   display: flex;
   padding-top: 20px;  
-  opacity: 0.85;
+  opacity: 0.9;
 }

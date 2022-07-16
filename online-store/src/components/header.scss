@@ -78,5 +78,8 @@ header {
     background-color: transparent;
     border: 0;
     width: 80%;
+    &:focus {
+      border: 0;
+    }
   }
 }

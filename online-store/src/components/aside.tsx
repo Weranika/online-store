@@ -1,6 +1,7 @@
 import React from 'react';
 import'./aside.scss';
 import RangeSlider from './slyder';
+import Sorting from './sorting';
 
 function Aside() {
   return (
@@ -45,6 +46,7 @@ function Aside() {
         </div>
       </div>
       <button className='reset-button'>Reset filters</button>
+      <Sorting/>
     </aside>
   );
 }

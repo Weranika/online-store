@@ -14,7 +14,7 @@ function Header() {
           <div className='search-container'>
             <input placeholder='enter search item' type="text" className="search-input"></input>
             <div className='search-clear'></div>
-          </div>
+          </div>          
           <Basket/>
         </div>
       </header>

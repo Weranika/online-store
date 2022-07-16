@@ -27,6 +27,7 @@ $FONT-MONOSPASE: monospace;
   max-width: 30%;
   background-color: $color-light-s;
   border-radius: 5px;  
+  text-align: center;
   .card-img {
     max-width: 100%;
     max-height: 100%;
@@ -40,6 +41,7 @@ $FONT-MONOSPASE: monospace;
   }
   .card-content {
     padding: 0 1rem;
+    text-align: justify;
     ul {
       list-style-type: none;
       padding-top: 10px;
@@ -51,5 +53,21 @@ $FONT-MONOSPASE: monospace;
     text-align: center;
     padding: 6px 0;
     font-family: $FONT-MONOSPASE;
+  }
+}
+.add-button-card {
+  border: none; 
+  background-color: $color-blue;
+  font-size: 1rem;
+  font-family: $FONT-MONOSPASE;
+  padding: 5px 8px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: $color-light-xs;
+  text-align: center;
+  margin-bottom: 5%;
+  &:hover {
+    background-color: $color-dark-s;
+    color: $color-dark-l;
   }
 }

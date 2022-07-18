@@ -23,6 +23,7 @@ $FONT-MONOSPASE: monospace;
   text-align: center;
   height: max-content;
   padding-bottom: 10px;
+  opacity: 0.9;
 }
 .aside-container {
   padding: 10px;
@@ -53,7 +54,9 @@ $FONT-MONOSPASE: monospace;
   flex-wrap: wrap;
   
 }
-.filter-button, .reset-button {
+.filter-button, 
+.reset-button, 
+.sort-button {
   margin: 5px;
   border-radius: 5px;
   border: none;

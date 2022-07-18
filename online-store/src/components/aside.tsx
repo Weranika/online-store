@@ -2,8 +2,21 @@ import React from 'react';
 import'./aside.scss';
 import RangeSlider from './slyder';
 import Sorting from './sorting';
+import Products from './products';
+import { useSelector, useDispatch } from 'react-redux';
+import ProductItem from '../backend/productItem';
+import {
+  filterTypeChair
+  
+} from '../store/reducer';
 
 function Aside() {
+  const dispatch = useDispatch();
+
+  function FilterByTypeSofa(elem : ProductItem) {
+    console.log(1133333)
+    return elem.type === 'Sofa';
+  }
   return (
     <aside className="aside">
       <div className="aside-container">
@@ -11,7 +24,8 @@ function Aside() {
         <div className="filter-type">
           <h4 className='fiitered-item-title'>Type:</h4>
           <ul className='filter-list-button'>
-            <li><button className='filter-button'>Sofa</button></li>
+            <li><button className='filter-button' onClick={() => dispatch(filterTypeChair())}>Sofa</button></li>
+            {/* <li><button className='filter-button' onClick={() => dispatch(filter(FilterByTypeSofa))}>Sofa</button></li> */}
             <li><button className='filter-button'>Chair</button></li>
           </ul>
         </div>

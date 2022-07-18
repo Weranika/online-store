@@ -1,21 +1,6 @@
 import * as React from 'react';
 import './card.scss';
 import ProductItem from '../backend/productItem';
-import ob from "../backend/products.json";
-
-const obInArr = ob.products;
-
-obInArr.map(item => 
-  new ProductItem(
-  item.name,
-  item.type,
-  item.img,
-  item.size,
-  item.color,
-  item.description,
-  item.material,
-  120
-))
 interface CardI { 
   name:ProductItem
 }
@@ -35,7 +20,7 @@ export default function Card(props:CardI) {
           </ul>
         </div>
         <p className='card-price'><span>Price: </span><span>{props.name.price}</span>$<span/></p>
-        <button className='add-button-card'>Add to card</button>
+        <button className='add-button-cart'>Add to cart</button>
       </div>
   );
 }

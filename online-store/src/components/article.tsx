@@ -10,7 +10,10 @@ export default function ArticleAreaCard() {
 
   return (
     <article className='main-section'>
-      {listOfProducts.map(item =>  <Card name={item}/>)}
+      {(listOfProducts.length !== 0)
+        ? (listOfProducts.map(item =>  <Card name={item}/>))
+        : <div className='not-found-msg'>Sorry,no matches found</div>
+      }
     </article>
   );
 }

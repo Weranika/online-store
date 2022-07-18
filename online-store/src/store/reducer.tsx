@@ -21,41 +21,45 @@ let activeFilters:Array<(a:ProductItem) => boolean> = [];
 
 const sofaFilter = (item:ProductItem) => item.type === 'Sofa';
 const searchFilter = (item:ProductItem) => {
-const input = (document.getElementById('input') as HTMLInputElement).value;
-return item.name.toLocaleLowerCase().indexOf(input.toLocaleLowerCase()) >= 0;
+  const input = (document.getElementById('input') as HTMLInputElement).value;
+  return item.name.toLocaleLowerCase().indexOf(input.toLocaleLowerCase()) >= 0;
+}
+
+function changeArrOfActiveFilters(filter:(a:ProductItem) => boolean) {
+  if (activeFilters.includes(filter)) {
+    return activeFilters.filter(elem => elem !== filter);
+  } else {
+    return [...activeFilters, filter];
+  }
+}
+function renderAllActiveFilters() {
+  return Products.getProducts().filter(elem => {
+    for (let i = 0; i < activeFilters.length; i++) {
+      if (activeFilters[i](elem) === false) {
+        return false;
+      }
+    }
+    return true;
+  });
 }
 
 export const counterSlice = createSlice({
   name: 'prodlist',
   initialState,
   reducers: {
-    // filter: (state, action: PayloadAction<(p:ProductItem) => boolean>) => {
-    //   state.products = state.products.filter(p => action.payload(p));
-    // },
     filterTypeSofa:(state) => {
       state.filters.typeChairFilter = state.filters.typeChairFilter ? false : true;
-      // if (state.filters.typeChairFilter === true) {
-      //   state.products = state.products.filter(sofaFilter);
-      // }
-      if (activeFilters.includes(sofaFilter)) {
-        activeFilters = activeFilters.filter(elem => elem !== sofaFilter);
-      } else {
-        activeFilters.push(sofaFilter);
-      }
-      state.products = state.products.filter(elem => {
-        for (let i = 0; i < activeFilters.length; i++) {
-          if (activeFilters[i](elem) === false) {
-            return false;
-          }
-        }
-        return true;
-      });
+      
+      activeFilters = changeArrOfActiveFilters(sofaFilter);
+
+      state.products = renderAllActiveFilters();
     },
     filterForSearch:(state) => {
-      state.products = state.products.filter(searchFilter);
-      if (state.products.length === 0) {
-        window.alert("Sorry,no matches found");
+      if (!activeFilters.includes(searchFilter)) {
+        activeFilters.push(searchFilter)
       }
+
+      state.products = renderAllActiveFilters();
     }
   },
 });

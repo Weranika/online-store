@@ -13,18 +13,13 @@ export default function Input() {
     <div className='search-container'>
       <input placeholder='Enter search item' 
               onChange={(event) => dispatch(filterForSearch())}
-              type="text" 
+              type="search" 
               className="search-input" 
               id='input'
               autoComplete='off'
               name='name'
               />
-      <div className='search-clear'></div>
-      <img className='close-button' 
-            src={img}
-            onClick={() => {
-              const input = document.getElementById('input') as HTMLInputElement;
-              input.value = ''}}></img>
+      <div className='search-clear'></div>      
     </div>
   );
 }

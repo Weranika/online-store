@@ -5,7 +5,8 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store/store';
 import { inputAdornmentClasses } from '@mui/material';
 interface Filters{
-  typeChairFilter: boolean// undefined | ((p:ProductItem) => boolean)
+  typeSofaFilter: boolean,// undefined | ((p:ProductItem) => boolean)
+  typeChairFilter: boolean
 }
 interface prodI{
   products : Array<ProductItem>,
@@ -14,12 +15,17 @@ interface prodI{
 
 const initialState:prodI  = {
   products : Products.getProducts(),
-  filters : {typeChairFilter:false}
+  filters : {
+    typeChairFilter:false,
+    typeSofaFilter:false,
+  }
 };
 
 let activeFilters:Array<(a:ProductItem) => boolean> = [];
 
 const sofaFilter = (item:ProductItem) => item.type === 'Sofa';
+const chairFilter = (item:ProductItem) => item.type === 'Chair';
+
 const searchFilter = (item:ProductItem) => {
   const input = (document.getElementById('input') as HTMLInputElement).value;
   return item.name.toLocaleLowerCase().indexOf(input.toLocaleLowerCase()) >= 0;
@@ -48,9 +54,16 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     filterTypeSofa:(state) => {
-      state.filters.typeChairFilter = state.filters.typeChairFilter ? false : true;
+      state.filters.typeSofaFilter = state.filters.typeSofaFilter ? false : true;
       
       activeFilters = changeArrOfActiveFilters(sofaFilter);
+
+      state.products = renderAllActiveFilters();
+    },
+    filterTypeChair:(state) => {
+      state.filters.typeChairFilter = state.filters.typeChairFilter ? false : true;
+      
+      activeFilters = changeArrOfActiveFilters(chairFilter);
 
       state.products = renderAllActiveFilters();
     },
@@ -69,6 +82,6 @@ export const counterSlice = createSlice({
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectItems = (state: RootState) => state.counter1.products;
 export const selectedFilters = (state: RootState) => state.counter1.filters;
-export const { filterTypeSofa, filterForSearch } = counterSlice.actions;
+export const { filterTypeSofa, filterTypeChair, filterForSearch } = counterSlice.actions;
 
 export default counterSlice.reducer;

@@ -7,6 +7,7 @@ import { useAppSelector, useAppDispatch } from '../store/hooks';
 import ProductItem from '../backend/productItem';
 import {
   filterTypeSofa,
+  filterTypeChair,
   selectedFilters
   
 } from '../store/reducer';
@@ -15,21 +16,19 @@ function Aside() {
   const dispatch = useAppDispatch();
   const listOfFilters = useAppSelector(selectedFilters);
 
-  function FilterByTypeSofa(elem : ProductItem) {
-    return elem.type === 'Sofa';
-  }
   return (
-    
     <aside className="aside">
       <div className="aside-container">
         <h3 className='aside-title'>Filter by:</h3>
         <div className="filter-type">
           <h4 className='fiitered-item-title'>Type:</h4>
           <ul className='filter-list-button'>
-            <li><button className={listOfFilters.typeChairFilter ?'filter-button active' : 'filter-button'}
+            <li><button className={listOfFilters.typeSofaFilter ?'filter-button active' : 'filter-button'}
                         onClick={(event) => dispatch(filterTypeSofa())
                         }>Sofa</button></li>
-            <li><button className='filter-button'>Chair</button></li>
+            <li><button className={listOfFilters.typeChairFilter ?'filter-button active' : 'filter-button'}
+                        onClick={(event) => dispatch(filterTypeChair())
+                        }>Chair</button></li>
           </ul>
         </div>
         <div className="filter-type">

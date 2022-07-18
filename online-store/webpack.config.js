@@ -15,7 +15,7 @@ const baseConfig = {
                 use: ['style-loader', 'css-loader'],
             },
             {
-                test: /\.ts$/i, 
+                test: /\.tsx$/i, 
                 use: 'ts-loader'
             },
             {
@@ -29,17 +29,17 @@ const baseConfig = {
                 test: /\.scss$/,
                 use: [
                   // fallback to style-loader in development
-                  process.env.NODE_ENV !== 'production'
+                    process.env.NODE_ENV !== 'production'
                     ? 'style-loader'
                     : MiniCssExtractPlugin.loader,
-                  'css-loader',
-                  'sass-loader',
+                    'css-loader',
+                    'sass-loader',
                 ],
             },
         ],
     },
     resolve: {
-        extensions: ['.ts', '.js'],
+        extensions: ['.tsx', '.ts', '.js'],
     },
     output: {
         filename: 'index.js',

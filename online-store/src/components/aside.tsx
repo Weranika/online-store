@@ -3,18 +3,19 @@ import'./aside.scss';
 import RangeSlider from './slyder';
 import Sorting from './sorting';
 import Products from './products';
-import { useDispatch } from 'react-redux';
+import { useAppSelector, useAppDispatch } from '../store/hooks';
 import ProductItem from '../backend/productItem';
 import {
-  filterTypeChair
+  filterTypeSofa,
+  selectedFilters
   
 } from '../store/reducer';
 
 function Aside() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  const listOfFilters = useAppSelector(selectedFilters);
 
   function FilterByTypeSofa(elem : ProductItem) {
-    console.log(1133333)
     return elem.type === 'Sofa';
   }
   return (
@@ -25,11 +26,9 @@ function Aside() {
         <div className="filter-type">
           <h4 className='fiitered-item-title'>Type:</h4>
           <ul className='filter-list-button'>
-            <li><button className='filter-button' 
-                        onClick={(event) => dispatch(filterTypeChair())
-                          //this.button.add('active');
+            <li><button className={listOfFilters.typeChairFilter ?'filter-button active' : 'filter-button'}
+                        onClick={(event) => dispatch(filterTypeSofa())
                         }>Sofa</button></li>
-            {/* <li><button className='filter-button' onClick={() => dispatch(filter(FilterByTypeSofa))}>Sofa</button></li> */}
             <li><button className='filter-button'>Chair</button></li>
           </ul>
         </div>

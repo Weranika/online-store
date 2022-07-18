@@ -15,6 +15,10 @@ const baseConfig = {
                 use: ['style-loader', 'css-loader'],
             },
             {
+                test: /\.ts$/i, 
+                use: 'ts-loader'
+            },
+            {
                 test: /\.tsx$/i, 
                 use: 'ts-loader'
             },
@@ -47,7 +51,7 @@ const baseConfig = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/index.html'),
+            template: path.resolve(__dirname, './public/index.html'),
             filename: 'index.html',
         }),
         new CleanWebpackPlugin(),

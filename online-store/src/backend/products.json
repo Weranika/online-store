@@ -2,7 +2,7 @@
   {
       "name": "APPLARO 1-seat",
       "type": "Chair",
-      "img": "/img/aepplaroe-one-seat-section-outdoor-brown-wood.jpg",
+      "img": "./img/aepplaroe-one-seat-section-outdoor-brown-wood.jpg",
       "size": 1,
       "color": "Brown",
       "description": "1-seat modular sofa. By combining different seating sections, you can create a sofa in a shape and size that perfectly suits your outdoor space.",
@@ -12,7 +12,7 @@
   {
     "name": "APPLARO 2-seat",
     "type": "Sofa",
-    "img": "/img/aepplaroe-2-seat-modular-sofa-outdoor-grey-wood.jpg",
+    "img": "./img/aepplaroe-2-seat-modular-sofa-outdoor-grey-wood.jpg",
     "size": 2,
     "color": "Grey",
     "description": "2-seat modular sofa.The furniture is made of acacia, a naturally durable and sturdy hardwood because of the high density of its wood fibres.",
@@ -22,7 +22,7 @@
 {
   "name": "APPLARO 3-seat",
   "type": "Sofa",
-  "img": "/img/aepplaroe-3-seat-modular-sofa-beige-wood.jpg",
+  "img": "./img/aepplaroe-3-seat-modular-sofa-beige-wood.jpg",
   "size": 3,
   "color": "Beige",
   "description": "1-seat modular sofa. By combining different seating sections, you can create a sofa in a shape and size that perfectly suits your outdoor space.",
@@ -32,7 +32,7 @@
 {
   "name": "HAVSTEN 1-seat",
   "type": "Chair",
-  "img": "/img/havsten-easy-chair-in-outdoor-beige-metall.jpg",
+  "img": "./img/havsten-easy-chair-in-outdoor-beige-metall.jpg",
   "size": 1,
   "color": "Beige",
   "description": "1-seat modular sofa. If you like the look, try how it feels. Generous seats, fluffy cushions as well as elastic mesh fabric make the sofa comfortable. Create your own combination, sit back and relax. Outdoors or indoors!",
@@ -42,7 +42,7 @@
 {
   "name": "HAVSTEN 2-seat",
   "type": "Sofa",
-  "img": "/img/havsten-2-seat-sofa-beige-metall.jpg",
+  "img": "./img/havsten-2-seat-sofa-beige-metall.jpg",
   "size": 2,
   "color": "Beige",
   "description": "2-seat modular sofa. If you like the look, try how it feels. Generous seats, fluffy cushions as well as elastic mesh fabric make the sofa comfortable. Create your own combination, sit back and relax. Outdoors or indoors!",
@@ -52,7 +52,7 @@
 {
   "name": "HAVSTEN 3-seat",
   "type": "Sofa",
-  "img": "/img/havsten-3-seat-sofa-in-outdoor-beige-metall.jpg",
+  "img": "./img/havsten-3-seat-sofa-in-outdoor-beige-metall.jpg",
   "size": 3,
   "color": "Beige",
   "description": "3-seat modular sofa. If you like the look, try how it feels. Generous seats, fluffy cushions as well as elastic mesh fabric make the sofa comfortable. Create your own combination, sit back and relax. Outdoors or indoors!",
@@ -62,7 +62,7 @@
 {
   "name": "JUTHOLMEN 1-seat",
   "type": "Chair",
-  "img": "/img/jutholmen-one-seat-section-outdoor-dark-grey-brown-plastic.jpg",
+  "img": "./img/jutholmen-one-seat-section-outdoor-dark-grey-brown-plastic.jpg",
   "size": 1,
   "color": "Dark grey",
   "description": "1-seat modular sofa. Create a comfy spot for relaxing outdoors with JUTHOLMEN modular sofa made of maintenance-free plastic rattan. Add soft, fade-resistant cushions with anti-slip to make outdoor life even easier.",
@@ -72,7 +72,7 @@
 {
   "name": "JUTHOLMEN 3-seat",
   "type": "Sofa",
-  "img": "/img/jutholmen-3-seat-modular-sofa-outdoor-dark-grey-plastic.jpg",
+  "img": "./img/jutholmen-3-seat-modular-sofa-outdoor-dark-grey-plastic.jpg",
   "size": 3,
   "color": "Dark grey",
   "description": "3-seat modular sofa. Create a comfy spot for relaxing outdoors with JUTHOLMEN modular sofa made of maintenance-free plastic rattan. Add soft, fade-resistant cushions with anti-slip to make outdoor life even easier.",
@@ -82,7 +82,7 @@
 {
   "name": "SOLLEROEN 1-seat",
   "type": "Chair",
-  "img": "/img/solleroen-one-seat-section-outdoor-brown-rottan.jpg",
+  "img": "./img/solleroen-one-seat-section-outdoor-brown-rottan.jpg",
   "size": 1,
   "color": "Brown",
   "description": "1-seat modular sofa. Create an armchair or customised sofa with our modular sections. Use the one-seat section on its own or add armrests or more sections. Maintenance-free plastic rattan makes life comfortable.",
@@ -92,7 +92,7 @@
 {
   "name": "SOLLEROEN 2-seat",
   "type": "Sofa",
-  "img": "/img/solleroen-2-seat-modular-sofa-outdoor-brown-rottan.jpg",
+  "img": "./img/solleroen-2-seat-modular-sofa-outdoor-brown-rottan.jpg",
   "size": 2,
   "color": "Dark grey",
   "description": "2-seat modular sofa. Create an armchair or customised sofa with our modular sections. Use the one-seat section on its own or add armrests or more sections. Maintenance-free plastic rattan makes life comfortable.",
@@ -102,7 +102,7 @@
 {
   "name": "SOLLEROEN 3-seat",
   "type": "Sofa",
-  "img": "/img/solleroen-3-seat-modular-sofa-outdoor-beige-rottan.jpg",
+  "img": "./img/solleroen-3-seat-modular-sofa-outdoor-beige-rottan.jpg",
   "size":3,
   "color": "Beige",
   "description": "3-seat modular sofa. Create an armchair or customised sofa with our modular sections. Use the one-seat section on its own or add armrests or more sections. Maintenance-free plastic rattan makes life comfortable.",
@@ -112,7 +112,7 @@
 {
   "name": "SOLLEROEN 3-seat corner",
   "type": "Sofa",
-  "img": "/img/solleroen-modular-corner-sofa-3-seat-dark-grey-rottan.jpg",
+  "img": "./img/solleroen-modular-corner-sofa-3-seat-dark-grey-rottan.jpg",
   "size":3,
   "color": "Dark grey",
   "description": "3-seat modular sofa. Create an armchair or customised sofa with our modular sections. Use the one-seat section on its own or add armrests or more sections. Maintenance-free plastic rattan makes life comfortable.",

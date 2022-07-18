@@ -9,7 +9,7 @@ function Header() {
       <header >
         <div className="header-container">
           <div id="start-screen nonshow">
-                <h1><a href="#start-screen" className="logo">Relaxation</a></h1>
+                <h1><a href="/" className="logo">Relaxation</a></h1>
                 <div className="subtitle">store of relaxing furniture</div>
           </div>
           <Input/>

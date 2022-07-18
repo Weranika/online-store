@@ -17,12 +17,12 @@ const initialState:prodI  = {
   filters : {typeChairFilter:false}
 };
 
-const arrOfFilters:Array<(a:ProductItem) => boolean> = [];
+let activeFilters:Array<(a:ProductItem) => boolean> = [];
 
 const sofaFilter = (item:ProductItem) => item.type === 'Sofa';
 const searchFilter = (item:ProductItem) => {
-  const input = (document.getElementById('input') as HTMLInputElement).value;
-  return item.name.toLocaleLowerCase().indexOf(input.toLocaleLowerCase()) >= 0;
+const input = (document.getElementById('input') as HTMLInputElement).value;
+return item.name.toLocaleLowerCase().indexOf(input.toLocaleLowerCase()) >= 0;
 }
 
 export const counterSlice = createSlice({
@@ -34,9 +34,22 @@ export const counterSlice = createSlice({
     // },
     filterTypeSofa:(state) => {
       state.filters.typeChairFilter = state.filters.typeChairFilter ? false : true;
-      if (state.filters.typeChairFilter === true) {
-        state.products = state.products.filter(sofaFilter);
+      // if (state.filters.typeChairFilter === true) {
+      //   state.products = state.products.filter(sofaFilter);
+      // }
+      if (activeFilters.includes(sofaFilter)) {
+        activeFilters = activeFilters.filter(elem => elem !== sofaFilter);
+      } else {
+        activeFilters.push(sofaFilter);
       }
+      state.products = state.products.filter(elem => {
+        for (let i = 0; i < activeFilters.length; i++) {
+          if (activeFilters[i](elem) === false) {
+            return false;
+          }
+        }
+        return true;
+      });
     },
     filterForSearch:(state) => {
       state.products = state.products.filter(searchFilter);

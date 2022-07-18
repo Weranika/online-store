@@ -2,7 +2,8 @@ $color-light: rgb(240, 240, 240);
 $color-light-xs: rgb(250, 250, 250);
 $color-light-s: rgb(232, 232, 241);
 $color-light-blue: rgb(230, 240, 245);
-$color-blue: rgb(89, 147, 175);
+$color-blue: rgb(44, 102, 131);
+$color-dark-blue: rgb(11, 71, 100);
 $color-dark-s: rgb(187, 187, 187);
 $color-dark-m: rgb(89, 89, 92);
 $color-dark-l: rgb(47, 47, 71);
@@ -11,12 +12,14 @@ $color-brown: rgb(94, 81, 66);
 
 $HEADER_CONTAINER: 1000px;
 $WIDTH: 95vw;
+$CARD-WIDTH: 310px;
+$ASIDE-WIDTH: 250px;
 
 $FONT-GILL: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 $FONT-MONOSPASE: monospace;
 
 .aside {
-  min-width: 15%;
+  min-width: $ASIDE-WIDTH;
   max-width: 20%;
   background-color: $color-light-xs;
   border-radius: 5px;
@@ -31,10 +34,13 @@ $FONT-MONOSPASE: monospace;
 .aside-title {
   font-family: $FONT-GILL;
 }
+div .sorting-container {
+  margin: 10px;
+}
 .fiitered-item-title, .sorting-title {
   font-family: $FONT-MONOSPASE;
   padding-right: 10px;
-  min-width: 50px;
+  min-width: 60px;
 }
 .filter-type, .sorting-container {
   display: flex;
@@ -63,11 +69,11 @@ $FONT-MONOSPASE: monospace;
   background-color: $color-dark-l;
   color: $color-light-s;
   min-width: 60px;
-  height: 25px;
+  min-height: 25px;
   font-family: $FONT-MONOSPASE;
   cursor: pointer;
   &:hover {
-    background-color: $color-dark-m;
+    box-shadow: 1px 1px 8px 1px $color-dark-blue;
   }
   .active {
     background-color: $color-blue;

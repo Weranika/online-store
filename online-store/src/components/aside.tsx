@@ -3,7 +3,7 @@ import'./aside.scss';
 import RangeSlider from './slyder';
 import Sorting from './sorting';
 import Products from './products';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import ProductItem from '../backend/productItem';
 import {
   filterTypeChair

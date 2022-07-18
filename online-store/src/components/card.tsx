@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './card.scss';
 import ProductItem from '../backend/productItem';
-interface CardI { 
+export interface CardI { 
   name:ProductItem
 }
 

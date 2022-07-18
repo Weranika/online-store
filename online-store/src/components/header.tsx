@@ -4,7 +4,6 @@ import Cart from './cart';
 import Input from './input';
 
 function Header() {
-
   return (
     <div className="App">
       <header >

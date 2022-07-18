@@ -1,0 +1,63 @@
+$color-light: rgb(240, 240, 240);
+$color-light-xs: rgb(250, 250, 250);
+$color-light-s: rgb(232, 232, 241);
+$color-light-blue: rgb(230, 240, 245);
+$color-dark-s: rgb(187, 187, 187);
+$color-dark-m: rgb(89, 89, 92);
+$color-dark-l: rgb(47, 47, 71);
+$color-dark-xl: rgb(19,18,43);
+$color-brown: rgb(94, 81, 66);
+
+$HEADER-CONTAINER-WIDTH: 90vw;
+$HEADER-CONTAINER-HEIGHT: 70px;
+$FOOTER-HEIGHT:7vh;
+
+$FONT-GILL: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+$FONT-MONOSPASE: monospace;
+
+.footer {
+  height: $FOOTER-HEIGHT;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: linear-gradient(90deg, rgba(73, 72, 74, 0.9) 0%, rgba(39, 39, 48, 0.9) 35%, rgba(73, 72, 74, 0.9) 90%);
+  .footer-content {
+    color: $color-light;
+    font-size: 0.8em;
+  }
+  .copyright {
+    font-size: 0.8em;
+    color: $color-light;
+    text-align: center;
+    &:before {
+      content: '©';
+    }
+    a {
+      color: $color-light;
+      &:hover {
+        color: $color-light;
+      }
+    }
+  }
+}
+.github-link {
+  background-image: url('../assets/icons/Github-icon.png');
+  cursor: pointer;
+  height: 31px;
+  width: 31px;
+  background-repeat: no-repeat;
+}
+.rss-link {
+  background-image: url('../assets/icons/rs_school_img.svg');
+  width: 5em;
+  height: 2em;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+/***************media********************/
+@media (max-width: 575px) { 
+  .footer-content {
+      display: none;
+  }
+}

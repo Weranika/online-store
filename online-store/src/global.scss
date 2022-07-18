@@ -9,18 +9,19 @@ $color-dark-xl: rgb(19,18,43);
 
 $HEADER-CONTAINER-WIDTH: 1000px;
 $HEADER-CONTAINER-HEIGHT: 70px;
-$WIDTH: 95vw;
+$WIDTH: 90vw;
 
 body {
   background-color: $color-light;
-  height: 100%;
-  width: $WIDTH;
+  height: 100%; 
   margin: 0 auto;
   background-image: url('../src/assets/img/background-patio-img.jpg');
   background-attachment: fixed
 }
 main {
-  margin-top: calc($HEADER-CONTAINER-HEIGHT); 
+  width: $WIDTH;
+  margin: calc($HEADER-CONTAINER-HEIGHT) auto 30px;
   display: flex;
   padding-top: 20px;  
+  justify-content: space-around;
 }

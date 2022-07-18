@@ -3,6 +3,7 @@ import './global.scss';
 import Header from './components/header';
 import Aside from './components/aside';
 import ArticleAreaCard from './components/article';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Aside/>
         <ArticleAreaCard/>
       </main>
+      <Footer/>
     </div>
   );
 }

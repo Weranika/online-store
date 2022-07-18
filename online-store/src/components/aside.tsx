@@ -18,13 +18,17 @@ function Aside() {
     return elem.type === 'Sofa';
   }
   return (
+    
     <aside className="aside">
       <div className="aside-container">
         <h3 className='aside-title'>Filter by:</h3>
         <div className="filter-type">
           <h4 className='fiitered-item-title'>Type:</h4>
           <ul className='filter-list-button'>
-            <li><button className='filter-button' onClick={() => dispatch(filterTypeChair())}>Sofa</button></li>
+            <li><button className='filter-button' 
+                        onClick={(event) => dispatch(filterTypeChair())
+                          //this.button.add('active');
+                        }>Sofa</button></li>
             {/* <li><button className='filter-button' onClick={() => dispatch(filter(FilterByTypeSofa))}>Sofa</button></li> */}
             <li><button className='filter-button'>Chair</button></li>
           </ul>

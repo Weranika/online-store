@@ -1,8 +1,10 @@
 import React from 'react';
 import'./header.scss';
-import Basket from './basket';
+import Cart from './cart';
+import Input from './input';
 
 function Header() {
+
   return (
     <div className="App">
       <header >
@@ -11,11 +13,8 @@ function Header() {
                 <h1><a href="#start-screen" className="logo">Relaxation</a></h1>
                 <div className="subtitle">store of relaxing furniture</div>
           </div>
-          <div className='search-container'>
-            <input placeholder='enter search item' type="text" className="search-input"></input>
-            <div className='search-clear'></div>
-          </div>          
-          <Basket/>
+          <Input/>
+          <Cart/>
         </div>
       </header>
     </div>

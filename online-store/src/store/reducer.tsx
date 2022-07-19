@@ -19,7 +19,8 @@ interface Filters{
   materialWoodFilter: boolean,
   resetFilterButton: boolean,
   sortingPrice: boolean,
-  sortingName: boolean
+  sortingName: boolean,
+  cartStatusInner: boolean
 }
 interface prodI{
   products : Array<ProductItem>,
@@ -43,7 +44,8 @@ const initialState:prodI  = {
     materialWoodFilter: false,
     resetFilterButton: false,
     sortingPrice: false,
-    sortingName: false
+    sortingName: false,
+    cartStatusInner: false
   }
 };
 
@@ -198,7 +200,23 @@ export const counterSlice = createSlice({
       const arrayForSort = [...Products.getProducts()]
       state.products = arrayForSort.sort((a, b) => a.price > b.price ? 1 : -1);
       state.filters.sortingPrice = state.filters.sortingPrice ? false : true;
-      console.log(2)
+    },
+    cartStatus:(state) => {
+      const addItemButt = document.getElementById('add-button') as HTMLElement;
+      const cartValue = document.getElementById('cart-counter') as HTMLElement;
+      let cartStatus = +cartValue.innerHTML;
+
+      state.filters.cartStatusInner = state.filters.cartStatusInner ? false : true; 
+
+      if(state.filters.cartStatusInner) {
+        addItemButt.innerHTML = "Remove from cart";
+        cartStatus += 1;
+        cartValue.innerHTML = cartStatus.toString();
+      } else {
+        addItemButt.innerHTML = "Add to cart";
+        cartStatus -= 1;
+        cartValue.innerHTML = cartStatus.toString();
+      }
     }
   },
 });
@@ -220,6 +238,7 @@ export const { filterTypeSofa,
                 resetFilter,
                 filterSizeThree,
                 sortByName,
+                cartStatus,
                 sortByPrice } = counterSlice.actions;
 
 export default counterSlice.reducer;

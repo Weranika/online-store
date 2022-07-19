@@ -1,11 +1,23 @@
 import * as React from 'react';
 import './card.scss';
 import ProductItem from '../backend/productItem';
+import { useAppSelector, useAppDispatch } from '../store/hooks';
+import { selectItems } from '../store/reducer';
+
+import {
+  selectedFilters,
+  cartStatus
+} from '../store/reducer';
+
 export interface CardI { 
   name:ProductItem
 }
 
 export default function Card(props:CardI) {
+  const dispatch = useAppDispatch();
+  const listOfFilters = useAppSelector(selectedFilters);
+  const listOfProducts = useAppSelector(selectItems);
+  
   return (
       <div className='card'>
         <img alt='card img' className='card-img' src={props.name.img}></img>
@@ -20,7 +32,9 @@ export default function Card(props:CardI) {
           </ul>
         </div>
         <p className='card-price'><span>Price: </span><span>{props.name.price}</span>$<span/></p>
-        <button className='add-button-cart'>Add to cart</button>
+        <button className={listOfFilters.sortingPrice ?'add-button-cart active-card' : 'add-button-cart'}
+                onClick={(event) => dispatch(cartStatus())}
+                id='add-button'>Add to cart</button>
       </div>
   );
 }

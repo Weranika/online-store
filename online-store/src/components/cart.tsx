@@ -3,9 +3,9 @@ import img from '../assets/icons/shopping.png';
 
 export default function Cart() {
   return (
-    <div className="basket">
-      <img className='bascet-logo' alt='basket' src= {img}></img>
-      <div className='basket-counter'>0</div>
+    <div className="cart">
+      <img className='cart-logo' alt='cart' src= {img}></img>
+      <div className='cart-counter' id='cart-counter'>0</div>
   </div>
   );
 }

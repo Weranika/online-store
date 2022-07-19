@@ -27,26 +27,28 @@ interface prodI{
   filters : Filters
 }
 
+const defFilersVal =  {
+  typeChairFilter:false,
+  typeSofaFilter:false,
+  SizeOneFilter:false,
+  SizeTwoFilter:false,
+  SizeThreeFilter:false,
+  colorBrownFilter:false,
+  colorGreyFilter:false,
+  colorBeigeFilter:false,
+  colorDarkGreyFilter:false,
+  materialRottangFilter: false,
+  materialMetallFilter: false,
+  materialWoodFilter: false,
+  resetFilterButton: false,
+  sortingPrice: false,
+  sortingName: false,
+  cartStatusInner: false
+};
+
 const initialState:prodI  = {
   products : Products.getProducts(),
-  filters : {
-    typeChairFilter:false,
-    typeSofaFilter:false,
-    SizeOneFilter:false,
-    SizeTwoFilter:false,
-    SizeThreeFilter:false,
-    colorBrownFilter:false,
-    colorGreyFilter:false,
-    colorBeigeFilter:false,
-    colorDarkGreyFilter:false,
-    materialRottangFilter: false,
-    materialMetallFilter: false,
-    materialWoodFilter: false,
-    resetFilterButton: false,
-    sortingPrice: false,
-    sortingName: false,
-    cartStatusInner: false
-  }
+  filters : defFilersVal
 };
 
 let activeFilters:Array<(a:ProductItem) => boolean> = [];
@@ -179,10 +181,10 @@ export const counterSlice = createSlice({
       state.products = renderAllActiveFilters();
     },
     resetFilter:(state) => {
-      state.products = Products.getProducts();
-
-      const button = document.querySelectorAll('button.active');
-      button.forEach(button => button.classList.remove("active"));
+      state.filters = defFilersVal;
+    
+      activeFilters = [];
+      state.products = renderAllActiveFilters();
     },
     filterForSearch:(state) => {
       if (!activeFilters.includes(searchFilter)) {
@@ -192,14 +194,10 @@ export const counterSlice = createSlice({
       state.products = renderAllActiveFilters();
     },
     sortByName:(state) => {
-      const arrayForSort = [...Products.getProducts()]
-      state.products = arrayForSort.sort((a, b) => a.name > b.name ? 1 : -1);
-      state.filters.sortingName = state.filters.sortingName ? false : true;
+      state.products.sort((a, b) => a.name > b.name ? 1 : -1);
     },
     sortByPrice:(state) => {
-      const arrayForSort = [...Products.getProducts()]
-      state.products = arrayForSort.sort((a, b) => a.price > b.price ? 1 : -1);
-      state.filters.sortingPrice = state.filters.sortingPrice ? false : true;
+      state.products.sort((a, b) => a.price > b.price ? 1 : -1);
     },
     cartStatus:(state) => {
       const addItemButt = document.getElementById('add-button') as HTMLElement;

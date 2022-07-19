@@ -69,6 +69,7 @@ $FONT-MONOSPASE: monospace;
   color: $color-light-xs;
   text-align: center;
   margin-bottom: 5%;
+  cursor: pointer;
   &:hover {
     background-color: $color-dark-s;
     color: $color-dark-l;

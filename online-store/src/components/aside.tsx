@@ -18,6 +18,7 @@ import {
   filterMaterialRottang,
   filterMaterialMetall,
   filterMaterialWood,
+  resetFilter,
   selectedFilters
 } from '../store/reducer';
 
@@ -90,7 +91,9 @@ function Aside() {
           <RangeSlider/>
         </div>
       </div>
-      <button className='reset-button'>Reset filters</button>
+      <button className='reset-button'
+              onClick={(event) => dispatch(resetFilter())
+              }>Reset filters</button>
       <Sorting/>
     </aside>
   );

@@ -12,17 +12,17 @@ $color-brown: rgb(94, 81, 66);
 $HEADER_CONTAINER: 1000px;
 $WIDTH: 95vw;
 $CARD-WIDTH: 270px;
+$ASIDE-WIDTH: 250px;
 
 $FONT-GILL: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 $FONT-MONOSPASE: monospace;
 
 .main-section {
-  margin-left: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 25px 10px;
   justify-content: space-around;
-  width: 80%;
+  margin-left: calc($ASIDE-WIDTH + 20px);
 }
 .card {
   min-width: $CARD-WIDTH;

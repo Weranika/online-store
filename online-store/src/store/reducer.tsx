@@ -17,6 +17,9 @@ interface Filters{
   materialRottangFilter: boolean,
   materialMetallFilter: boolean,
   materialWoodFilter: boolean,
+  resetFilterButton: boolean,
+  sortingPrice: boolean,
+  sortingName: boolean
 }
 interface prodI{
   products : Array<ProductItem>,
@@ -38,6 +41,9 @@ const initialState:prodI  = {
     materialRottangFilter: false,
     materialMetallFilter: false,
     materialWoodFilter: false,
+    resetFilterButton: false,
+    sortingPrice: false,
+    sortingName: false
   }
 };
 
@@ -81,6 +87,9 @@ function renderAllActiveFilters() {
     return true;
   });
 }
+// function sortByField(field:string) {
+//   return (a:string, b:string) => a[field] > b[field] ? 1 : -1;
+// }
 
 export const counterSlice = createSlice({
   name: 'prodlist',
@@ -170,18 +179,33 @@ export const counterSlice = createSlice({
 
       state.products = renderAllActiveFilters();
     },
+    resetFilter:(state) => {
+      state.products = Products.getProducts();
+
+      const button = document.querySelectorAll('button.active');
+      button.forEach(button => button.classList.remove("active"));
+    },
     filterForSearch:(state) => {
       if (!activeFilters.includes(searchFilter)) {
         activeFilters.push(searchFilter)
       }
 
       state.products = renderAllActiveFilters();
+      console.log(Products.getProducts())
+    },
+    sortByName:(state) => {
+      state.products = Products.getProducts().sort((a, b) => a.name > b.name ? 1 : -1);
+      state.filters.sortingPrice = state.filters.sortingPrice ? false : true;
+    },
+    sortByPrice:(state) => {
+      state.products = Products.getProducts().sort((a, b) => a.price > b.price ? 1 : -1);
+      state.filters.sortingName = state.filters.sortingName ? false : true;
     }
   },
 });
 
-export const selectItems = (state: RootState) => state.counter1.products;
-export const selectedFilters = (state: RootState) => state.counter1.filters;
+export const selectItems = (state: RootState) => state.mainReducer.products;
+export const selectedFilters = (state: RootState) => state.mainReducer.filters;
 export const { filterTypeSofa, 
                 filterTypeChair, 
                 filterForSearch, 
@@ -194,6 +218,9 @@ export const { filterTypeSofa,
                 filterMaterialRottang,
                 filterMaterialMetall,
                 filterMaterialWood,
-                filterSizeThree } = counterSlice.actions;
+                resetFilter,
+                filterSizeThree,
+                sortByName,
+                sortByPrice } = counterSlice.actions;
 
 export default counterSlice.reducer;

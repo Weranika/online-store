@@ -8,8 +8,10 @@ import ProductItem from '../backend/productItem';
 import {
   filterTypeSofa,
   filterTypeChair,
+  filterSizeOne,
+  filterSizeTwo,
+  filterSizeThree,
   selectedFilters
-  
 } from '../store/reducer';
 
 function Aside() {
@@ -34,9 +36,15 @@ function Aside() {
         <div className="filter-type">
           <h4 className='fiitered-item-title'>Size:</h4>
           <ul className='filter-list-button'>
-            <li><button className='filter-button'>1</button></li>
-            <li><button className='filter-button'>2</button></li>
-            <li><button className='filter-button'>3</button></li>
+            <li><button className={listOfFilters.SizeOneFilter ?'filter-button active' : 'filter-button'}
+                        onClick={(event) => dispatch(filterSizeOne())
+                        }>1</button></li>
+            <li><button className={listOfFilters.SizeTwoFilter ?'filter-button active' : 'filter-button'}
+                        onClick={(event) => dispatch(filterSizeTwo())
+                        }>2</button></li>
+            <li><button className={listOfFilters.SizeThreeFilter ?'filter-button active' : 'filter-button'}
+                        onClick={(event) => dispatch(filterSizeThree())
+                        }>3</button></li>
           </ul>
         </div>
         <div className="filter-type">

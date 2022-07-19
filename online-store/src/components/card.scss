@@ -76,10 +76,10 @@ $FONT-MONOSPASE: monospace;
 }
 .not-found-msg {
   color: $color-dark-xl;
-  font-size: 5rem;
   background-color: rgba(187, 187, 187, 0.7);
   padding: 30px;
-  height: 20%;
   border-radius: 20px;
   margin-top: 10%;
+  font-size: 5vw;
+  max-height: 7vw;
 }

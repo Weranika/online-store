@@ -5,8 +5,11 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store/store';
 import { inputAdornmentClasses } from '@mui/material';
 interface Filters{
-  typeSofaFilter: boolean,// undefined | ((p:ProductItem) => boolean)
-  typeChairFilter: boolean
+  typeSofaFilter: boolean,
+  typeChairFilter: boolean, 
+  SizeOneFilter: boolean, 
+  SizeTwoFilter: boolean,
+  SizeThreeFilter: boolean,
 }
 interface prodI{
   products : Array<ProductItem>,
@@ -18,6 +21,9 @@ const initialState:prodI  = {
   filters : {
     typeChairFilter:false,
     typeSofaFilter:false,
+    SizeOneFilter:false,
+    SizeTwoFilter:false,
+    SizeThreeFilter:false,
   }
 };
 
@@ -25,6 +31,9 @@ let activeFilters:Array<(a:ProductItem) => boolean> = [];
 
 const sofaFilter = (item:ProductItem) => item.type === 'Sofa';
 const chairFilter = (item:ProductItem) => item.type === 'Chair';
+const sizeOneFilter = (item:ProductItem) => item.size === 1;
+const sizeTwoFilter = (item:ProductItem) => item.size === 2;
+const sizeThreeFilter = (item:ProductItem) => item.size === 3;
 
 const searchFilter = (item:ProductItem) => {
   const input = (document.getElementById('input') as HTMLInputElement).value;
@@ -67,6 +76,27 @@ export const counterSlice = createSlice({
 
       state.products = renderAllActiveFilters();
     },
+    filterSizeOne:(state) => {
+      state.filters.SizeOneFilter = state.filters.SizeOneFilter ? false : true;
+      
+      activeFilters = changeArrOfActiveFilters(sizeOneFilter);
+
+      state.products = renderAllActiveFilters();
+    },
+    filterSizeTwo:(state) => {
+      state.filters.SizeTwoFilter = state.filters.SizeTwoFilter ? false : true;
+      
+      activeFilters = changeArrOfActiveFilters(sizeTwoFilter);
+
+      state.products = renderAllActiveFilters();
+    },
+    filterSizeThree:(state) => {
+      state.filters.SizeThreeFilter = state.filters.SizeThreeFilter ? false : true;
+      
+      activeFilters = changeArrOfActiveFilters(sizeThreeFilter);
+
+      state.products = renderAllActiveFilters();
+    },
     filterForSearch:(state) => {
       if (!activeFilters.includes(searchFilter)) {
         activeFilters.push(searchFilter)
@@ -77,11 +107,13 @@ export const counterSlice = createSlice({
   },
 });
 
-// The function below is called a selector and allows us to select a value from
-// the state. Selectors can also be defined inline where they're used instead of
-// in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectItems = (state: RootState) => state.counter1.products;
 export const selectedFilters = (state: RootState) => state.counter1.filters;
-export const { filterTypeSofa, filterTypeChair, filterForSearch } = counterSlice.actions;
+export const { filterTypeSofa, 
+                filterTypeChair, 
+                filterForSearch, 
+                filterSizeOne,
+                filterSizeTwo,
+                filterSizeThree } = counterSlice.actions;
 
 export default counterSlice.reducer;

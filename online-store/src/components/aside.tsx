@@ -11,6 +11,10 @@ import {
   filterSizeOne,
   filterSizeTwo,
   filterSizeThree,
+  filterColorBrownFilter,
+  filterColorGreyFilter,
+  filterColorBeigeFilter,
+  filterColorDarkGreyFilter,
   selectedFilters
 } from '../store/reducer';
 
@@ -50,10 +54,18 @@ function Aside() {
         <div className="filter-type">
           <h4 className='fiitered-item-title'>Color:</h4>
           <ul className='filter-list-button'>
-            <li><button className='filter-button'>Brown</button></li>
-            <li><button className='filter-button'>Grey</button></li>
-            <li><button className='filter-button'>Beige</button></li>
-            <li><button className='filter-button'>Dark grey</button></li>
+            <li><button className={listOfFilters.colorBrownFilter ?'filter-button active' : 'filter-button'}
+                        onClick={(event) => dispatch(filterColorBrownFilter())
+                        }>Brown</button></li>
+            <li><button className={listOfFilters.colorGreyFilter ?'filter-button active' : 'filter-button'}
+                        onClick={(event) => dispatch(filterColorGreyFilter())
+                        }>Grey</button></li>
+            <li><button className={listOfFilters.colorBeigeFilter ?'filter-button active' : 'filter-button'}
+                        onClick={(event) => dispatch(filterColorBeigeFilter())
+                        }>Beige</button></li>
+            <li><button className={listOfFilters.colorDarkGreyFilter ?'filter-button active' : 'filter-button'}
+                        onClick={(event) => dispatch(filterColorDarkGreyFilter())
+                        }>Dark grey</button></li>
           </ul>
         </div>
         <div className="filter-type">

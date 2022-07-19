@@ -10,6 +10,10 @@ interface Filters{
   SizeOneFilter: boolean, 
   SizeTwoFilter: boolean,
   SizeThreeFilter: boolean,
+  colorBrownFilter: boolean,
+  colorGreyFilter: boolean,
+  colorBeigeFilter: boolean,
+  colorDarkGreyFilter: boolean,
 }
 interface prodI{
   products : Array<ProductItem>,
@@ -24,6 +28,10 @@ const initialState:prodI  = {
     SizeOneFilter:false,
     SizeTwoFilter:false,
     SizeThreeFilter:false,
+    colorBrownFilter:false,
+    colorGreyFilter:false,
+    colorBeigeFilter:false,
+    colorDarkGreyFilter:false,
   }
 };
 
@@ -31,9 +39,15 @@ let activeFilters:Array<(a:ProductItem) => boolean> = [];
 
 const sofaFilter = (item:ProductItem) => item.type === 'Sofa';
 const chairFilter = (item:ProductItem) => item.type === 'Chair';
+
 const sizeOneFilter = (item:ProductItem) => item.size === 1;
 const sizeTwoFilter = (item:ProductItem) => item.size === 2;
 const sizeThreeFilter = (item:ProductItem) => item.size === 3;
+
+const colorBrownFilter = (item:ProductItem) => item.color === 'Brown';
+const colorGreyFilter = (item:ProductItem) => item.color === 'Grey';
+const colorBeigeFilter = (item:ProductItem) => item.color === 'Beige';
+const colorDarkGreyFilter = (item:ProductItem) => item.color === 'Dark grey';
 
 const searchFilter = (item:ProductItem) => {
   const input = (document.getElementById('input') as HTMLInputElement).value;
@@ -97,6 +111,34 @@ export const counterSlice = createSlice({
 
       state.products = renderAllActiveFilters();
     },
+    filterColorBrownFilter:(state) => {
+      state.filters.colorBrownFilter = state.filters.colorBrownFilter ? false : true;
+      
+      activeFilters = changeArrOfActiveFilters(colorBrownFilter);
+
+      state.products = renderAllActiveFilters();
+    },
+    filterColorGreyFilter:(state) => {
+      state.filters.colorGreyFilter = state.filters.colorGreyFilter ? false : true;
+      
+      activeFilters = changeArrOfActiveFilters(colorGreyFilter);
+
+      state.products = renderAllActiveFilters();
+    },
+    filterColorBeigeFilter:(state) => {
+      state.filters.colorBeigeFilter = state.filters.colorBeigeFilter ? false : true;
+      
+      activeFilters = changeArrOfActiveFilters(colorBeigeFilter);
+
+      state.products = renderAllActiveFilters();
+    },
+    filterColorDarkGreyFilter:(state) => {
+      state.filters.colorDarkGreyFilter = state.filters.colorDarkGreyFilter ? false : true;
+      
+      activeFilters = changeArrOfActiveFilters(colorDarkGreyFilter);
+
+      state.products = renderAllActiveFilters();
+    },
     filterForSearch:(state) => {
       if (!activeFilters.includes(searchFilter)) {
         activeFilters.push(searchFilter)
@@ -114,6 +156,10 @@ export const { filterTypeSofa,
                 filterForSearch, 
                 filterSizeOne,
                 filterSizeTwo,
+                filterColorBrownFilter,
+                filterColorGreyFilter,
+                filterColorBeigeFilter,
+                filterColorDarkGreyFilter,
                 filterSizeThree } = counterSlice.actions;
 
 export default counterSlice.reducer;

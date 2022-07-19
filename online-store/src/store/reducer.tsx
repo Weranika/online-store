@@ -87,9 +87,6 @@ function renderAllActiveFilters() {
     return true;
   });
 }
-// function sortByField(field:string) {
-//   return (a:string, b:string) => a[field] > b[field] ? 1 : -1;
-// }
 
 export const counterSlice = createSlice({
   name: 'prodlist',
@@ -191,15 +188,17 @@ export const counterSlice = createSlice({
       }
 
       state.products = renderAllActiveFilters();
-      console.log(Products.getProducts())
     },
     sortByName:(state) => {
-      state.products = Products.getProducts().sort((a, b) => a.name > b.name ? 1 : -1);
-      state.filters.sortingPrice = state.filters.sortingPrice ? false : true;
+      const arrayForSort = [...Products.getProducts()]
+      state.products = arrayForSort.sort((a, b) => a.name > b.name ? 1 : -1);
+      state.filters.sortingName = state.filters.sortingName ? false : true;
     },
     sortByPrice:(state) => {
-      state.products = Products.getProducts().sort((a, b) => a.price > b.price ? 1 : -1);
-      state.filters.sortingName = state.filters.sortingName ? false : true;
+      const arrayForSort = [...Products.getProducts()]
+      state.products = arrayForSort.sort((a, b) => a.price > b.price ? 1 : -1);
+      state.filters.sortingPrice = state.filters.sortingPrice ? false : true;
+      console.log(2)
     }
   },
 });

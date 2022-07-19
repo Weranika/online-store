@@ -21,6 +21,7 @@ $FONT-MONOSPASE: monospace;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  margin-top: 20px;
   background: linear-gradient(90deg, rgba(73, 72, 74, 0.9) 0%, rgba(39, 39, 48, 0.9) 35%, rgba(73, 72, 74, 0.9) 90%);
   .footer-content {
     color: $color-light;

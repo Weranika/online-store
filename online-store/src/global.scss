@@ -9,6 +9,7 @@ $color-dark-xl: rgb(19,18,43);
 
 $HEADER-CONTAINER-WIDTH: 1000px;
 $HEADER-CONTAINER-HEIGHT: 70px;
+$FOOTER-HEIGHT:7vh;
 $WIDTH: 90vw;
 
 body {
@@ -20,6 +21,8 @@ body {
 }
 main {
   width: $WIDTH;
-  margin: calc($HEADER-CONTAINER-HEIGHT) auto 30px;
+  min-height: calc(100vh - $HEADER-CONTAINER-HEIGHT - $FOOTER-HEIGHT);
+  margin: calc($HEADER-CONTAINER-HEIGHT) auto 0;
   padding-top: 20px;
+  display: flex;
 }

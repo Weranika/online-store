@@ -22,7 +22,7 @@ $FONT-MONOSPASE: monospace;
   flex-wrap: wrap;
   gap: 25px 10px;
   justify-content: space-around;
-  margin-left: calc($ASIDE-WIDTH + 20px);
+  margin-left: 20px;
 }
 .card {
   min-width: $CARD-WIDTH;

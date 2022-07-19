@@ -15,6 +15,9 @@ import {
   filterColorGreyFilter,
   filterColorBeigeFilter,
   filterColorDarkGreyFilter,
+  filterMaterialRottang,
+  filterMaterialMetall,
+  filterMaterialWood,
   selectedFilters
 } from '../store/reducer';
 
@@ -71,9 +74,15 @@ function Aside() {
         <div className="filter-type">
           <h4 className='fiitered-item-title'>Material:</h4>
           <ul className='filter-list-button'>
-            <li><button className='filter-button'>Rottang</button></li>
-            <li><button className='filter-button'>Metall</button></li>
-            <li><button className='filter-button'>Wood</button></li>
+            <li><button className={listOfFilters.materialRottangFilter ?'filter-button active' : 'filter-button'}
+                        onClick={(event) => dispatch(filterMaterialRottang())
+                        }>Rottang</button></li>
+            <li><button className={listOfFilters.materialMetallFilter ?'filter-button active' : 'filter-button'}
+                        onClick={(event) => dispatch(filterMaterialMetall())
+                        }>Metall</button></li>
+            <li><button className={listOfFilters.materialWoodFilter ?'filter-button active' : 'filter-button'}
+                        onClick={(event) => dispatch(filterMaterialWood())
+                        }>Wood</button></li>
           </ul>
         </div>
         <div className="filter-type">

@@ -14,6 +14,9 @@ interface Filters{
   colorGreyFilter: boolean,
   colorBeigeFilter: boolean,
   colorDarkGreyFilter: boolean,
+  materialRottangFilter: boolean,
+  materialMetallFilter: boolean,
+  materialWoodFilter: boolean,
 }
 interface prodI{
   products : Array<ProductItem>,
@@ -32,6 +35,9 @@ const initialState:prodI  = {
     colorGreyFilter:false,
     colorBeigeFilter:false,
     colorDarkGreyFilter:false,
+    materialRottangFilter: false,
+    materialMetallFilter: false,
+    materialWoodFilter: false,
   }
 };
 
@@ -48,6 +54,10 @@ const colorBrownFilter = (item:ProductItem) => item.color === 'Brown';
 const colorGreyFilter = (item:ProductItem) => item.color === 'Grey';
 const colorBeigeFilter = (item:ProductItem) => item.color === 'Beige';
 const colorDarkGreyFilter = (item:ProductItem) => item.color === 'Dark grey';
+
+const materialRottangFilter = (item:ProductItem) => item.material === 'Rottang';
+const materialMetallFilter = (item:ProductItem) => item.material === 'Metall';
+const materialWoodFilter = (item:ProductItem) => item.material === 'Wood';
 
 const searchFilter = (item:ProductItem) => {
   const input = (document.getElementById('input') as HTMLInputElement).value;
@@ -139,6 +149,27 @@ export const counterSlice = createSlice({
 
       state.products = renderAllActiveFilters();
     },
+    filterMaterialRottang:(state) => {
+      state.filters.materialRottangFilter = state.filters.materialRottangFilter ? false : true;
+      
+      activeFilters = changeArrOfActiveFilters(materialRottangFilter);
+
+      state.products = renderAllActiveFilters();
+    },
+    filterMaterialMetall:(state) => {
+      state.filters.materialMetallFilter = state.filters.materialMetallFilter ? false : true;
+      
+      activeFilters = changeArrOfActiveFilters(materialMetallFilter);
+
+      state.products = renderAllActiveFilters();
+    },
+    filterMaterialWood:(state) => {
+      state.filters.materialWoodFilter = state.filters.materialWoodFilter ? false : true;
+      
+      activeFilters = changeArrOfActiveFilters(materialWoodFilter);
+
+      state.products = renderAllActiveFilters();
+    },
     filterForSearch:(state) => {
       if (!activeFilters.includes(searchFilter)) {
         activeFilters.push(searchFilter)
@@ -160,6 +191,9 @@ export const { filterTypeSofa,
                 filterColorGreyFilter,
                 filterColorBeigeFilter,
                 filterColorDarkGreyFilter,
+                filterMaterialRottang,
+                filterMaterialMetall,
+                filterMaterialWood,
                 filterSizeThree } = counterSlice.actions;
 
 export default counterSlice.reducer;

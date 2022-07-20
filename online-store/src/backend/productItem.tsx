@@ -7,6 +7,7 @@ export default class ProductItem {
   description: string;
   material: string;
   price: number;
+  id: number;
 
   constructor(name: string,
               type: string,
@@ -15,7 +16,8 @@ export default class ProductItem {
               color: string,
               description: string,
               material: string,
-              price: number) {
+              price: number,
+              id: number) {
     this.name = name;
     this.type = type;
     this.img = img;
@@ -24,5 +26,6 @@ export default class ProductItem {
     this.description = description;
     this.material = material;
     this.price = price;
+    this.id = id;
   }
 }

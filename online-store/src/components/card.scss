@@ -12,6 +12,7 @@ $color-brown: rgb(94, 81, 66);
 $HEADER_CONTAINER: 1000px;
 $WIDTH: 95vw;
 $CARD-WIDTH: 270px;
+$CARD-CONTENT-WIDTH: 262px;
 $ASIDE-WIDTH: 250px;
 
 $FONT-GILL: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -45,6 +46,7 @@ $FONT-MONOSPASE: monospace;
     opacity: 0.9;
     padding: 0 1rem;
     text-align: justify;
+    height: $CARD-CONTENT-WIDTH;
     ul {
       list-style-type: none;
       padding-top: 10px;

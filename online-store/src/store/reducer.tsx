@@ -24,7 +24,8 @@ interface Filters{
 }
 interface prodI{
   products : Array<ProductItem>,
-  filters : Filters
+  filters : Filters,
+  addedItemsToCart: Array<ProductItem>,
 }
 
 const defFilersVal =  {
@@ -45,10 +46,10 @@ const defFilersVal =  {
   sortingName: false,
   cartStatusInner: false
 };
-
 const initialState:prodI  = {
   products : Products.getProducts(),
-  filters : defFilersVal
+  filters : defFilersVal,
+  addedItemsToCart : [],
 };
 
 let activeFilters:Array<(a:ProductItem) => boolean> = [];
@@ -199,28 +200,18 @@ export const counterSlice = createSlice({
     sortByPrice:(state) => {
       state.products.sort((a, b) => a.price > b.price ? 1 : -1);
     },
-    cartStatus:(state) => {
-      const addItemButt = document.getElementById('add-button') as HTMLElement;
-      const cartValue = document.getElementById('cart-counter') as HTMLElement;
-      let cartStatus = +cartValue.innerHTML;
-
-      state.filters.cartStatusInner = state.filters.cartStatusInner ? false : true; 
-
-      if(state.filters.cartStatusInner) {
-        addItemButt.innerHTML = "Remove from cart";
-        cartStatus += 1;
-        cartValue.innerHTML = cartStatus.toString();
-      } else {
-        addItemButt.innerHTML = "Add to cart";
-        cartStatus -= 1;
-        cartValue.innerHTML = cartStatus.toString();
-      }
+    cartAdd:(state, item) => {
+      state.addedItemsToCart.push(item.payload);
+    },
+    cartRemove:(state, item) => {
+      state.addedItemsToCart = state.addedItemsToCart.filter(el => el.id !== item.payload.id);
     }
   },
 });
 
 export const selectItems = (state: RootState) => state.mainReducer.products;
 export const selectedFilters = (state: RootState) => state.mainReducer.filters;
+export const cartItems = (state: RootState) => state.mainReducer.addedItemsToCart;
 export const { filterTypeSofa, 
                 filterTypeChair, 
                 filterForSearch, 
@@ -236,7 +227,8 @@ export const { filterTypeSofa,
                 resetFilter,
                 filterSizeThree,
                 sortByName,
-                cartStatus,
+                cartAdd,
+                cartRemove,
                 sortByPrice } = counterSlice.actions;
 
 export default counterSlice.reducer;

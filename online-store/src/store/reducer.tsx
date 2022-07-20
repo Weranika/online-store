@@ -4,6 +4,10 @@ import ProductItem from '../backend/productItem';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store/store';
 import { inputAdornmentClasses } from '@mui/material';
+import { useState, useEffect } from "react";
+
+//localStorage.setItem('filters', state.filters);
+
 interface Filters{
   typeSofaFilter: boolean,
   typeChairFilter: boolean, 
@@ -21,11 +25,6 @@ interface Filters{
   sortingPrice: boolean,
   sortingName: boolean,
   cartStatusInner: boolean
-}
-interface prodI{
-  products : Array<ProductItem>,
-  filters : Filters,
-  addedItemsToCart: Array<ProductItem>,
 }
 
 const defFilersVal =  {
@@ -46,10 +45,18 @@ const defFilersVal =  {
   sortingName: false,
   cartStatusInner: false
 };
+interface prodI{
+  products : Array<ProductItem>,
+  filters : Filters,
+  addedItemsToCart: Array<ProductItem>,
+  sliderFilterState: Array<number>
+}
+
 const initialState:prodI  = {
   products : Products.getProducts(),
   filters : defFilersVal,
   addedItemsToCart : [],
+  sliderFilterState : [],
 };
 
 let activeFilters:Array<(a:ProductItem) => boolean> = [];
@@ -77,8 +84,11 @@ const searchFilter = (item:ProductItem) => {
 
 function changeArrOfActiveFilters(filter:(a:ProductItem) => boolean) {
   if (activeFilters.includes(filter)) {
+    const filt = activeFilters.filter(elem => elem !== filter);
+    localStorage.setItem('filters', JSON.stringify(filt));
     return activeFilters.filter(elem => elem !== filter);
   } else {
+    localStorage.setItem('filters', JSON.stringify([...activeFilters, filter]));
     return [...activeFilters, filter];
   }
 }
@@ -96,13 +106,14 @@ function renderAllActiveFilters() {
 export const counterSlice = createSlice({
   name: 'prodlist',
   initialState,
-  reducers: {
+  reducers: {   
     filterTypeSofa:(state) => {
       state.filters.typeSofaFilter = state.filters.typeSofaFilter ? false : true;
       
       activeFilters = changeArrOfActiveFilters(sofaFilter);
 
       state.products = renderAllActiveFilters();
+      //localStorage.setItem('filters', JSON.stringify(state.products));
     },
     filterTypeChair:(state) => {
       state.filters.typeChairFilter = state.filters.typeChairFilter ? false : true;
@@ -181,6 +192,17 @@ export const counterSlice = createSlice({
 
       state.products = renderAllActiveFilters();
     },
+    filterSliderByPrice:(state, value) => {
+
+      //state.addedItemsToCart.push(item.payload);
+      console.log(value)
+      const sliderByPrice = (item:ProductItem) => 
+        item.price > value.payload[0] && item.price < value.payload[1];
+      
+      activeFilters = changeArrOfActiveFilters(sliderByPrice);
+
+      state.products = renderAllActiveFilters();
+    },
     resetFilter:(state) => {
       state.filters = defFilersVal;
     
@@ -212,6 +234,7 @@ export const counterSlice = createSlice({
 export const selectItems = (state: RootState) => state.mainReducer.products;
 export const selectedFilters = (state: RootState) => state.mainReducer.filters;
 export const cartItems = (state: RootState) => state.mainReducer.addedItemsToCart;
+export const sliderState = (state: RootState) => state.mainReducer.sliderFilterState;
 export const { filterTypeSofa, 
                 filterTypeChair, 
                 filterForSearch, 
@@ -229,6 +252,7 @@ export const { filterTypeSofa,
                 sortByName,
                 cartAdd,
                 cartRemove,
-                sortByPrice } = counterSlice.actions;
+                sortByPrice,
+                filterSliderByPrice } = counterSlice.actions;
 
 export default counterSlice.reducer;

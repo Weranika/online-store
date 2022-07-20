@@ -1,6 +1,6 @@
 import React from 'react';
 import'./aside.scss';
-import RangeSlider from './slyder';
+import RangeSlider from './slider';
 import Sorting from './sorting';
 import Products from './products';
 import { useAppSelector, useAppDispatch } from '../store/hooks';

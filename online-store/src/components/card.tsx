@@ -36,7 +36,7 @@ export default function Card(props:CardI) {
         ? <button className='add-button-cart'
         onClick={(event) => dispatch(cartAdd(props.item))}
         >Add to cart</button>
-        : <button className='add-button-cart'
+        : <button className='add-button-cart remove-button-cart'
         onClick={(event) => dispatch(cartRemove(props.item))}
         >Remove from cart</button>
         }

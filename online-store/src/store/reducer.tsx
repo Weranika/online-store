@@ -50,7 +50,7 @@ interface prodI{
 const initialState:prodI  = {
   products : Products.getProducts(),
   filters : defFilersVal,
-  addedItemsToCart : JSON.parse(localStorage.getItem('cart') || '{}'),
+  addedItemsToCart : JSON.parse(localStorage.getItem('cart') || '[]'),
   sliderFilterState : [],
 };
 

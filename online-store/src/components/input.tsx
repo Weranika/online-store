@@ -2,9 +2,7 @@ import * as React from 'react';
 import img from '../assets/icons/close-button.png';
 import ProductItem from '../backend/productItem';
 import { useDispatch } from 'react-redux';
-import {
-  filterForSearch
-} from '../store/reducer';
+import { filterForSearch } from '../store/reducer';
 
 const focus = function setFocus(){
   const input = document.getElementById('input') as HTMLInputElement;

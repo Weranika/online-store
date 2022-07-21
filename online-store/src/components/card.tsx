@@ -14,8 +14,6 @@ export interface CardI {
 }
 export default function Card(props:CardI) {
   const dispatch = useAppDispatch();
-  const listOfFilters = useAppSelector(selectedFilters);
-  const listOfProducts = useAppSelector(selectItems);
   const arrOfAddedItems =  useAppSelector(cartItems);
   
   return (

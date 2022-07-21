@@ -3,11 +3,6 @@ import Products from '../components/products';
 import ProductItem from '../backend/productItem';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store/store';
-import { inputAdornmentClasses } from '@mui/material';
-import { useState, useEffect } from "react";
-
-//localStorage.setItem('filters', state.filters);
-
 interface Filters{
   typeSofaFilter: boolean,
   typeChairFilter: boolean, 
@@ -55,7 +50,7 @@ interface prodI{
 const initialState:prodI  = {
   products : Products.getProducts(),
   filters : defFilersVal,
-  addedItemsToCart : [],
+  addedItemsToCart : JSON.parse(localStorage.getItem('cart') || '{}'),
   sliderFilterState : [],
 };
 
@@ -85,13 +80,12 @@ const searchFilter = (item:ProductItem) => {
 function changeArrOfActiveFilters(filter:(a:ProductItem) => boolean) {
   if (activeFilters.includes(filter)) {
     const filt = activeFilters.filter(elem => elem !== filter);
-    localStorage.setItem('filters', JSON.stringify(filt));
     return activeFilters.filter(elem => elem !== filter);
   } else {
-    localStorage.setItem('filters', JSON.stringify([...activeFilters, filter]));
     return [...activeFilters, filter];
   }
 }
+
 function renderAllActiveFilters() {
   return Products.getProducts().filter(elem => {
     for (let i = 0; i < activeFilters.length; i++) {
@@ -106,14 +100,13 @@ function renderAllActiveFilters() {
 export const counterSlice = createSlice({
   name: 'prodlist',
   initialState,
-  reducers: {   
+  reducers: {
     filterTypeSofa:(state) => {
       state.filters.typeSofaFilter = state.filters.typeSofaFilter ? false : true;
       
       activeFilters = changeArrOfActiveFilters(sofaFilter);
 
       state.products = renderAllActiveFilters();
-      //localStorage.setItem('filters', JSON.stringify(state.products));
     },
     filterTypeChair:(state) => {
       state.filters.typeChairFilter = state.filters.typeChairFilter ? false : true;
@@ -193,9 +186,6 @@ export const counterSlice = createSlice({
       state.products = renderAllActiveFilters();
     },
     filterSliderByPrice:(state, value) => {
-
-      //state.addedItemsToCart.push(item.payload);
-      console.log(value)
       const sliderByPrice = (item:ProductItem) => 
         item.price > value.payload[0] && item.price < value.payload[1];
       
@@ -208,6 +198,7 @@ export const counterSlice = createSlice({
     
       activeFilters = [];
       state.products = renderAllActiveFilters();
+      state.sliderFilterState = [];
     },
     filterForSearch:(state) => {
       if (!activeFilters.includes(searchFilter)) {
@@ -224,9 +215,13 @@ export const counterSlice = createSlice({
     },
     cartAdd:(state, item) => {
       state.addedItemsToCart.push(item.payload);
+      localStorage.setItem('cart', JSON.stringify(state.addedItemsToCart));
     },
     cartRemove:(state, item) => {
-      state.addedItemsToCart = state.addedItemsToCart.filter(el => el.id !== item.payload.id);
+      state.addedItemsToCart = state.addedItemsToCart.
+                              filter(el => el.id !== item.payload.id);
+      localStorage.setItem('cart', JSON.stringify(state.addedItemsToCart));
+      
     }
   },
 });

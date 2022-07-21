@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import'./aside.scss';
 import { useDispatch } from 'react-redux';
 import { filterSliderByPrice, sliderState } from '../store/reducer';
-import { useAppSelector, useAppDispatch } from '../store/hooks';
+import { useAppSelector } from '../store/hooks';
 
 function valuetext(value: number) {
   return `${value}$`;
@@ -22,16 +22,28 @@ export default function RangeSlider() {
 
   return (
     <Box sx={{ width: 200 }}>
-      <Slider
-        getAriaLabel={() => 'Price range'}
-        value={value}
-        min={80}
-        step={1}
-        max={400}
-        onChange={handleChange}
-        valueLabelDisplay="auto"
-        getAriaValueText={valuetext}
-      />
+      {(arrOfSliderValue.length == 0)
+        ?  <Slider
+            getAriaLabel={() => 'Price range'}
+            value={value}
+            min={80}
+            step={1}
+            max={400}
+            onChange={handleChange}
+            valueLabelDisplay="auto"
+            getAriaValueText={valuetext}
+          />
+        : <Slider
+            getAriaLabel={() => 'Price range'}
+            value={value}
+            min={80}
+            step={1}
+            max={400}
+            onChange={handleChange}
+            valueLabelDisplay="auto"
+            getAriaValueText={valuetext}
+          />
+      }
     </Box>
   );
 }

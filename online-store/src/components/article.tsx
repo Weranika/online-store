@@ -2,7 +2,7 @@ import * as React from 'react';
 import './card.scss';
 import Card from '../components/card';
 import Products from './products';
-import { useAppSelector, useAppDispatch } from '../store/hooks';
+import { useAppSelector } from '../store/hooks';
 import { selectItems } from '../store/reducer';
 
 export default function ArticleAreaCard() {

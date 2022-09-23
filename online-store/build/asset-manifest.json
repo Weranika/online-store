@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "./static/css/main.6c129782.css",
+    "main.js": "./static/js/main.476deaab.js",
+    "static/js/787.a92fe09e.chunk.js": "./static/js/787.a92fe09e.chunk.js",
+    "static/media/background-patio-img.jpg": "./static/media/background-patio-img.d7bb338cbba18ac314eb.jpg",
+    "static/media/rs_school_img.svg": "./static/media/rs_school_img.ad178c0df28bc133be34.svg",
+    "index.html": "./index.html",
+    "main.6c129782.css.map": "./static/css/main.6c129782.css.map",
+    "main.476deaab.js.map": "./static/js/main.476deaab.js.map",
+    "787.a92fe09e.chunk.js.map": "./static/js/787.a92fe09e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6c129782.css",
+    "static/js/main.476deaab.js"
+  ]
+}
